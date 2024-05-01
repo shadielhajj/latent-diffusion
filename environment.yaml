@@ -1,15 +1,19 @@
 name: ldm
 channels:
   - pytorch
+  - nvidia
   - defaults
 dependencies:
   - python=3.8.5
   - pip=20.3
-  - cudatoolkit=11.0
-  - pytorch=1.7.0
-  - torchvision=0.8.1
+  - pytorch
+  - torchvision
+  - pytorch-cuda=11.8
   - numpy=1.19.2
   - pip:
+    - chardet
+    - packaging==21.3
+    - torchmetrics<0.8
     - albumentations==0.4.3
     - opencv-python==4.1.2.30
     - pudb==2019.2
