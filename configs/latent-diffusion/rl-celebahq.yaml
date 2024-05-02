@@ -67,11 +67,15 @@ data:
       target: ldm.data.globdir.GlobDirTrain
       params:
         dir: "data/celeba_hq_256/*"
+        start_index: 0
+        end_index: 8000
         size: 256
     validation:
       target: ldm.data.globdir.GlobDirValidation
       params:
         dir: "data/celeba_hq_256/*"
+        start_index: 25000
+        end_index: 30000
         size: 256
 
 

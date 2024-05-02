@@ -19,7 +19,7 @@ do
             cd models/first_stage_models
             wget https://ommer-lab.com/files/latent-diffusion/vq-f4.zip
             unzip vq-f4.zip -d vq-f4
-            rm vq-f4.zip
+            # rm vq-f4.zip
             cd ..
             ;;
 
