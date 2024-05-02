@@ -66,12 +66,14 @@ data:
     train:
       target: ldm.data.globdir.GlobDirTrain
       params:
-        dir: "data/celeba_hq_256_subset/*"
+        dir: "data/celeba_hq_256/*"
+        max_images: 8000
         size: 256
     validation:
       target: ldm.data.globdir.GlobDirValidation
       params:
-        dir: "data/celeba_hq_256_subset/*"
+        dir: "data/celeba_hq_256/*"
+        max_images: 8000
         size: 256
 
 

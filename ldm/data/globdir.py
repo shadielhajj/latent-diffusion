@@ -25,16 +25,16 @@ class GlobDirBase(Dataset):
 
 
 class GlobDirTrain(GlobDirBase):
-    def __init__(self, dir, size, keys=None):
+    def __init__(self, dir, size, max_images=-1, keys=None):
         super().__init__()
-        paths = glob.glob(dir)
+        paths = sorted(glob.glob(dir))[:max_images]
         self.data = ImagePaths(paths=paths, size=size, random_crop=False)
         self.keys = keys
 
 
 class GlobDirValidation(GlobDirBase):
-    def __init__(self, dir, size, keys=None):
+    def __init__(self, dir, size, max_images=-1, keys=None):
         super().__init__()
-        paths = glob.glob(dir)
+        paths = sorted(glob.glob(dir))[:max_images]
         self.data = ImagePaths(paths=paths, size=size, random_crop=False)
         self.keys = keys
