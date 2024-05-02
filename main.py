@@ -4,6 +4,7 @@ import time
 import torch
 import torchvision
 import pytorch_lightning as pl
+import platform
 
 from packaging import version
 from omegaconf import OmegaConf
@@ -20,8 +21,9 @@ from pytorch_lightning.utilities import rank_zero_info
 from ldm.data.base import Txt2ImgIterableBaseDataset
 from ldm.util import instantiate_from_config
 
-# https://github.com/ray-project/ray_lightning/issues/13
-os.environ["PL_TORCH_DISTRIBUTED_BACKEND"] = "gloo"
+if platform.system() == "Windows":
+    # https://github.com/ray-project/ray_lightning/issues/13
+    os.environ["PL_TORCH_DISTRIBUTED_BACKEND"] = "gloo"
 
 def get_parser(**parser_kwargs):
     def str2bool(v):
@@ -710,10 +712,10 @@ if __name__ == "__main__":
                 pudb.set_trace()
 
 
-        #import signal
-
-        #signal.signal(signal.SIGUSR1, melk)
-        #signal.signal(signal.SIGUSR2, divein)
+        if platform.system() != "Windows":
+            import signal
+            signal.signal(signal.SIGUSR1, melk)
+            signal.signal(signal.SIGUSR2, divein)
 
         # run
         if opt.train:
