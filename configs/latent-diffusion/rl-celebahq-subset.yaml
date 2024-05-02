@@ -60,16 +60,18 @@ model:
 data:
   target: main.DataModuleFromConfig
   params:
-    batch_size: 48
+    batch_size: 16
     num_workers: 5
     wrap: false
     train:
-      target: taming.data.faceshq.CelebAHQTrain
+      target: ldm.data.globdir.GlobDirTrain
       params:
+        dir: "data/celeba_hq_256_subset/*"
         size: 256
     validation:
-      target: taming.data.faceshq.CelebAHQValidation
+      target: ldm.data.globdir.GlobDirValidation
       params:
+        dir: "data/celeba_hq_256_subset/*"
         size: 256
 
 
@@ -84,3 +86,4 @@ lightning:
 
   trainer:
     benchmark: True
+    max_epochs: 50

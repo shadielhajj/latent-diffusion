@@ -1,6 +1,6 @@
 __pycache__/
-logs/
-
-models/
-data/celeba_hq_256/
 latent_diffusion.egg-info/
+
+logs/
+data/
+models/

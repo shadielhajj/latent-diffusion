@@ -1,12 +1,10 @@
-import os
-import numpy as np
 from torch.utils.data import Dataset
 import glob
 
 from ldm.data.base import ImagePaths
 
 
-class FacesBase(Dataset):
+class GlobDirBase(Dataset):
     def __init__(self, *args, **kwargs):
         super().__init__()
         self.data = None
@@ -26,17 +24,17 @@ class FacesBase(Dataset):
         return ex
 
 
-class CelebAHQTrain(FacesBase):
-    def __init__(self, size, keys=None):
+class GlobDirTrain(GlobDirBase):
+    def __init__(self, dir, size, keys=None):
         super().__init__()
-        paths = glob.glob("data/celeba_hq_256/*")
+        paths = glob.glob(dir)
         self.data = ImagePaths(paths=paths, size=size, random_crop=False)
         self.keys = keys
 
 
-class CelebAHQValidation(FacesBase):
-    def __init__(self, size, keys=None):
+class GlobDirValidation(GlobDirBase):
+    def __init__(self, dir, size, keys=None):
         super().__init__()
-        paths = glob.glob("data/celeba_hq_256/*")
+        paths = glob.glob(dir)
         self.data = ImagePaths(paths=paths, size=size, random_crop=False)
         self.keys = keys
