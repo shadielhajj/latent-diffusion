@@ -64,14 +64,14 @@ data:
     num_workers: 5
     wrap: false
     train:
-      target: ldm.data.globdir.GlobDirTrain
+      target: ldm.data.globdir.GlobDir
       params:
         dir: "data/celeba_hq_256/*"
         start_index: 0
         end_index: 8000
         size: 256
     validation:
-      target: ldm.data.globdir.GlobDirValidation
+      target: ldm.data.globdir.GlobDir
       params:
         dir: "data/celeba_hq_256/*"
         start_index: 28400
