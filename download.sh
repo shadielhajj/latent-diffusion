@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get -y install unzip
+
 # Download models and data
 
 for var in "$@"
@@ -20,7 +22,7 @@ do
             wget https://ommer-lab.com/files/latent-diffusion/vq-f4.zip
             unzip vq-f4.zip -d vq-f4
             # rm vq-f4.zip
-            cd ..
+            cd ../..
             ;;
 
         *)
