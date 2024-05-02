@@ -60,7 +60,7 @@ model:
 data:
   target: main.DataModuleFromConfig
   params:
-    batch_size: 16
+    batch_size: 48
     num_workers: 5
     wrap: false
     train:
@@ -68,13 +68,13 @@ data:
       params:
         dir: "data/celeba_hq_256/*"
         start_index: 0
-        end_index: 8000
+        end_index: 25000
         size: 256
     validation:
       target: ldm.data.globdir.GlobDir
       params:
         dir: "data/celeba_hq_256/*"
-        start_index: 28400
+        start_index: 25000
         end_index: 30000
         size: 256
 
